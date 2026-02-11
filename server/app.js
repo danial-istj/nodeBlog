@@ -4,19 +4,19 @@ import { dirname } from 'path';
 import morgan from 'morgan';
 import mongoose from 'mongoose';
 import router from './Routes/blogRoutes.js';
-import blogController from './controllers/controllers.js'
-
+import dotenv from 'dotenv'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+dotenv.config();
 
 //create app
 const app = express();
 
 //connect to mongo db
-const dbURI = 'mongodb+srv://danial-nodeblog:danialnodeblog123@nodeblog.ibi0yxh.mongodb.net/?appName=NodeBlog';
+// const dbURI = 'mongodb+srv://danial-nodeblog:danialnodeblog123@nodeblog.ibi0yxh.mongodb.net/?appName=NodeBlog';
 console.log('Connecting to MongoDB...');
-mongoose.connect(dbURI)
+mongoose.connect(process.env.dbURI)
     .then(() => {
         console.log('MongoDB connected');
         app.listen(7000, () => {
