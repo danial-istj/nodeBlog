@@ -15,7 +15,6 @@ dotenv.config();
 const app = express();
 
 //connect to mongo db
-// const dbURI = 'mongodb+srv://danial-nodeblog:danialnodeblog123@nodeblog.ibi0yxh.mongodb.net/?appName=NodeBlog';
 console.log('Connecting to MongoDB...');
 mongoose.connect(process.env.dbURI)
     .then(() => {
